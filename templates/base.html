@@ -15,7 +15,8 @@
 <body>
     
     <header>
-        <h1>Добро пожаловать на главную страницу</h1>
+        <img class="logo" src="{% static 'images/logo.png' %}" alt="">
+        <h1>VirtualTeacher</h1>
     </header>
         <nav>
             <ul>
@@ -28,6 +29,10 @@
     {% block content %}
 
     {% endblock content %}
+
+    <footer>
+        VirtualTeacher. v0.1
+    </footer>
 
 </body>
 </html>
