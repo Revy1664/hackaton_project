@@ -14,9 +14,25 @@
 </head>
 <body>
     
+    <header>
+        <img class="logo" src="{% static 'images/logo.png' %}" alt="">
+        <h1>VirtualTeacher</h1>
+    </header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'ask_question' %}">Задать вопрос</a></li>
+                <li><a href="{% url 'questions' %}">Все вопросы</a></li>
+            </ul>
+      </nav>
+
     {% block content %}
 
     {% endblock content %}
+
+    <footer>
+        VirtualTeacher. v0.1
+    </footer>
 
 </body>
 </html>
