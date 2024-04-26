@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} {% endblock title %}
+
+{% block content %}
+
+    <h1>Вопрос и ответы</h1>
+    {% for question in questions %}
+        <div style="border: 1px solid black;">
+            <p>{{ question.question }}</p>
+            <p>{{ question.answer }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
