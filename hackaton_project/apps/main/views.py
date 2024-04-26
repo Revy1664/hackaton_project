@@ -1,12 +1,27 @@
 from django.shortcuts import render, redirect
 
-from .forms import QuestionAnswerForm
+from .forms import QuestionAnswerForm, SubjectForm
 from .models import QuestionAnswer
 
 
 def index(request):
 
-    return render(request, "main/index.html")
+	form = SubjectForm()
+
+	if request.method == "POST":
+		form = SubjectForm(request.POST)
+		if form.is_valid():
+			text = """
+				1. First Question \n\n
+				2. Second Question \n
+				3. Third Question \n
+				4. Fourth Question \n
+				5. Fifth Qustion \n
+			"""
+
+			return render(request, "main/index.html", {"form": form, "text": text})
+
+	return render(request, "main/index.html", {"form": form	})
 
 
 def all_questions(request):
@@ -33,6 +48,6 @@ def ask_question(request):
 
 			return redirect("questions")
 
-	return render(request, "main/question_answer.html", {"form": form})
+	return render(request, "main/ask_question.html", {"form": form})
 
 	
