@@ -1,9 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %} {% endblock title %}
 
 {% block content %}
 
-    <h1>Hello!</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Send">
+    </form>
+
+    {% if text %}
+        <div>
+            <h1>Вопросы:</h1>
+            <textarea name="" id="" cols="30" rows="10">{{ text }}</textarea>
+        </div>
+    {% endif %}
+    
+    
 
 {% endblock content %}
