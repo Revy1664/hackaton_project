@@ -2,7 +2,7 @@ from django.db import models
 
 
 class QuestionAnswer(models.Model):
-	question = models.TextField(verbose_name="Вопрос")
+	question = models.CharField(max_length=100, verbose_name="Вопрос")
 	answer = models.TextField(verbose_name="Ответ")
 
 	def __str__(self):

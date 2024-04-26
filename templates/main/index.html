@@ -5,7 +5,7 @@
 
 {% block content %}
 
-    <form method="POST">
+    <!-- <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Send">
@@ -16,8 +16,26 @@
             <h1>Вопросы:</h1>
             <textarea name="" id="" cols="30" rows="10">{{ text }}</textarea>
         </div>
-    {% endif %}
+    {% endif %} -->
     
+    <main>
+        <section>
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label }} <br>
+                        {{ field }} <br>
+                    </div>
+                {% endfor %}
+                <input type="submit" value="Send">
+                {% if text %}
+                    <h2 style="margin-top: 10px;">Вопросы: </h2>
+                    <textarea cols="57" rows="10">{{ text }}</textarea>
+                {% endif %}
+            </form>
+        </section>
+    </main>
     
 
 {% endblock content %}

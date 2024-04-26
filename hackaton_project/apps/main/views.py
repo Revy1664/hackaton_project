@@ -11,13 +11,7 @@ def index(request):
 	if request.method == "POST":
 		form = SubjectForm(request.POST)
 		if form.is_valid():
-			text = """
-				1. First Question \n\n
-				2. Second Question \n
-				3. Third Question \n
-				4. Fourth Question \n
-				5. Fifth Qustion \n
-			"""
+			text = "Just generated questions by AI"
 
 			return render(request, "main/index.html", {"form": form, "text": text})
 
